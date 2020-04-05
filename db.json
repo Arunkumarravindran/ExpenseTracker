@@ -1,0 +1,107 @@
+{
+    "doctorList": [
+      {
+        "id": 1,
+        "firstName": "Dr.Malathi",
+        "lastName": "M.Arivazhagn",
+        "mobileNo": "9499904200",
+        "email": "malathiari@gmail.com",
+        "gender": "Female",
+        "practiceSince": "01/02/2015",
+        "specialization": "Neurology",
+        "city": "Chennai"
+      },
+      {
+        "id": 2,
+        "firstName": "Dr.Magi",
+        "lastName": "A.Mani",
+        "mobileNo": "9445642020",
+        "email": "magi@gmail.com",
+        "gender": "Male",
+        "practiceSince": "01/02/2017",
+        "specialization": "Denist",
+        "city": "Coimabatore"
+      },
+      {
+        "id": 3,
+        "firstName": "Dr.Arun",
+        "lastName": "R.Kumar",
+        "mobileNo": "9487209320",
+        "email": "arun@gmail.com",
+        "gender": "Male",
+        "practiceSince": "01/03/2019",
+        "specialization": "Neurology",
+        "city": "Banglore"
+      },
+      {
+        "id": 4,
+        "firstName": "Dr.Jeni",
+        "lastName": "M.victoria",
+        "mobileNo": "9127372200",
+        "email": "jeni@gmail.com",
+        "gender": "Female",
+        "practiceSince": "02/05/2015",
+        "specialization": "Dietician",
+        "city": "Pondy"
+      },
+      {
+        "id": 5,
+        "firstName": "Dr.Nandhini",
+        "lastName": "M.Muthu",
+        "mobileNo": "9498012200",
+        "email": "nandhini@gmail.com",
+        "gender": "Female",
+        "practiceSince": "01/03/2015",
+        "specialization": "Neurology",
+        "city": "Madurai"
+      },
+      {
+        "firstName": "Dr.Srini",
+        "lastName": "Vasan",
+        "specialization": "Diabetologist",
+        "gender": "Male",
+        "email": "srini@admin.com",
+        "mobileNo": "78778787878",
+        "dateOfBirth": {
+          "year": 2020,
+          "month": 3,
+          "day": 31
+        },
+        "practiceSince": {
+          "year": 2020,
+          "month": 4,
+          "day": 23
+        },
+        "city": "chennai",
+        "id": 6
+      }
+    ],
+    "expenseTable":
+    [
+        
+        {
+        "id": 1,
+        "date": "01/04/2020",
+        "catagory": "savings",
+        "type": "credit",
+        "notes": "Arun send the money",
+        "amount": 50000
+        },
+        {
+            "id": 2,
+            "date": "01/04/2020",
+            "catagory": "Food",
+            "type": "debit",
+            "notes": "send the money to xx shop",
+            "amount": 500
+            },
+            {
+                "id": 3,
+                "date": "01/04/2020",
+                "catagory": "deposit",
+                "type": "credit",
+                "notes": "xx send the money",
+                "amount": 5000
+                }
+    ]
+  }

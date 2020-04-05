@@ -1,0 +1,129 @@
+
+.welcomeCard{
+    height: 50px;
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 96%;
+}
+.budgetCard{
+    height: 40%;
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    float: right;
+    padding: 16px;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-right: 12px;
+    width: 30%;
+}
+.statusCard{
+    height: 40%;
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    float: right;
+    padding: 16px;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-right: 8px;
+    width: 30%;
+}
+
+.unknownCard{
+    height: 40%;
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    float: left;
+    padding: 16px;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30%;
+    background-color: seagreen;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+.lastMonthCard{
+    height: 40%;
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: absolute;
+    float: left;
+    padding: 16px;
+    bottom: 0;
+    top: 70%;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30%;
+}
+.creditBar {
+    margin-top: 10px;
+}
+.example-margin {
+    margin: 0 10px;
+  }
+
+  .creddebBtn{
+      margin-top: 40px;
+  }
+
+  .creditBtn{
+    margin-left: 10px;
+    background-color: green;
+  }
+  .debitBtn{
+    float: right;
+    margin-right: 18px;
+    background-color: red;
+  }
+  .statementBtn{
+      float: right;
+      margin-left: 60%;
+    margin-top: 22px;
+
+  }
+  .addbudgetBtn{
+    float: right;
+    margin-top: -50px;
+    margin-left: 57px;
+    background-color: rgb(255, 220, 22);
+  }
+  .viewsstatmBtn{
+    float: right;
+    margin-left: 30px;
+    margin-top: -15px;
+    background-color: rgb(43, 20, 128);
+  }
+
+  .totalIncomeCard{
+margin-top: 20px;
+height: 55px;
+  }
+  .totalExpanseCard{
+    margin-top: 50px;
+    height: 55px;
+  }
+
+
+  .headerDiv{
+
+    margin-left: 15px;
+  }
+
+  .barNames{
+      font-size: 8px;
+font-weight: bold;
+      margin-top: -3px;
+  }
