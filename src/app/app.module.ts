@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,24 +19,38 @@ import { AddExpenseComponent } from '../addExpense/addExpense.component';
 import { AddIncomeComponent } from '../addIncome/addIncome.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatNativeDateModule} from '@angular/material';
+import {MatNativeDateModule,DateAdapter} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { FormsModule }   from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import {MatPaginatorModule} from '@angular/material/paginator'; 
+import {MatSortModule} from '@angular/material/sort';
+import { ChartsModule } from 'ng2-charts';
+import {MatBadgeModule} from '@angular/material/badge';
+import { SetMonthyBudgetComponent } from '../setMonthyBudget/setMonthyBudget.component';
 @NgModule({
    declarations: [
       AppComponent,
       DashboardComponent,
       ViewStatementComponent,
       AddExpenseComponent,
-      AddIncomeComponent
+      AddIncomeComponent,
+      SetMonthyBudgetComponent
    ],
    entryComponents: [
       ViewStatementComponent,
       AddExpenseComponent,
-      AddIncomeComponent
+      AddIncomeComponent,
+      SetMonthyBudgetComponent
    ],
    imports: [
       BrowserModule,
+      ReactiveFormsModule,
+      MatSortModule,
+      FormsModule,
+      MatBadgeModule,
+      ChartsModule,
       MatFormFieldModule,
       MatSelectModule,
       MatDatepickerModule,
@@ -43,6 +58,7 @@ import {MatSelectModule} from '@angular/material/select';
       MatNativeDateModule,
       BrowserAnimationsModule,
       MatInputModule,
+      MatPaginatorModule,
       MatToolbarModule,
       MatIconModule,
       MatCardModule,
@@ -51,11 +67,16 @@ import {MatSelectModule} from '@angular/material/select';
       MatButtonModule,
       MatDialogModule,
       MatTableModule,
-      HttpClientModule
+      HttpClientModule,
+      MatDatepickerModule
    ],
-   providers: [],
+   providers: [
+      DatePipe
+   ],
    bootstrap: [
       AppComponent
    ]
 })
-export class AppModule { }
+export class AppModule  {
+
+}

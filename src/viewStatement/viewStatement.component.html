@@ -1,50 +1,54 @@
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="statementList">
+  <mat-form-field class = "filterPlace">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" matSort>
 
     <!-- Position Column -->
     <ng-container matColumnDef="no">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.id}}</td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Date </th>
-      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date | date}} </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="catagory">
-      <th mat-header-cell *matHeaderCellDef> Catagory </th>
+      <th mat-header-cell *matHeaderCellDef > Catagory </th>
       <td mat-cell *matCellDef="let element"> {{element.catagory}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <th mat-header-cell *matHeaderCellDef > Type </th>
       <td mat-cell *matCellDef="let element"> {{element.type}} </td>
     </ng-container>
 
     <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <th mat-header-cell *matHeaderCellDef > Description </th>
       <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
     </ng-container>
 
     
 
     <ng-container matColumnDef="amount" >
-      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
       <p mat-cell  *matCellDef="let element" >
-      <td *ngIf="element.type == 'credit'; else elseBlock" style="color: green;"> {{element.amount}} </td>
+      <td *ngIf="element.type == 'Income'; else elseBlock" style="color: green;"> +{{element.amount}} </td>
    
     <ng-template #elseBlock>
-      <td style="color: red;"> {{element.amount}}</td>
+      <td style="color: red;"> -{{element.amount}}</td>
     </ng-template>
   </p>
   </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
-  
+  <mat-paginator [length]="statementList.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]">
+  </mat-paginator>
 </div>

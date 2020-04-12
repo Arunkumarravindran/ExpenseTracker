@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Expense Tracker</span>
-    <span></span>
-    <mat-icon> money</mat-icon>
-    <mat-icon class = "userCircle">mood</mat-icon>
+    <mat-card-header>
+      <div mat-card-avatar matBadge="{{this.badgeValue}}" (click) = "badgeValueZero()" matBadgeColor="warn" class="userCircle"></div>
+    </mat-card-header>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -13,7 +13,7 @@
 <mat-card class = "welcomeCard">
   <div class = "headerDiv">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+    <div mat-card-avatar matBadge="{{this.badgeValue}}" (click) = "badgeValueZero()" matBadgeColor="warn" class="example-header-image"></div>
     <mat-card-title>Welcome Back, Arun Kumar!</mat-card-title>
     <mat-card-subtitle>This is your dashboard, Overview of everything</mat-card-subtitle>
     <div class = "statementBtn">
@@ -26,45 +26,114 @@
 </mat-card>
 <mat-card class = "budgetCard">
 
-  <h3 style="color: rgb(201, 196, 201);" >Budget </h3>
+  <h3 style="color: rgb(201, 196, 201);text-align: center;" >Budget </h3>
   <span></span>
-  <button class = "addbudgetBtn" (click)="openBudget()" mat-button>Set Monthly Limit</button>
-  
   <span class = "creditBar"></span>
   <div  class= "barNames">
   <p>Credit</p>
-  <p style="float: right; font-size: 8px;">Rs:{{creditValue}}</p>
+  <p style="float: right; font-size: 10px;">Rs:{{creditValue}}</p>
 </div>
- <mat-progress-bar color = "accent"  mode="determinate" value="60"></mat-progress-bar>
+ <mat-progress-bar color = "accent"  mode="determinate" value="{{this.creditPercentage}}"></mat-progress-bar>
   <span></span>
   <div  class= "barNames">
     <p>Debit</p>
-    <p style="float: right; font-size: 8px;">Rs:{{debitValue}}</p>
+    <p style="float: right; font-size: 10px;">Rs:{{debitValue}}</p>
   </div>
-  <mat-progress-bar color = "primary" mode="determinate" value="20"></mat-progress-bar>
+  <mat-progress-bar color = "warn" mode="determinate" value="{{this.remaining}}"></mat-progress-bar>
   <span></span>
   <div  class= "barNames">
     <p>Monthly Limit</p>
     <span></span>
-    <p style="float: right; font-size: 8px;">Rs:50000</p>
+    <p style="float: right; font-size: 10px;">Rs:{{monthlyBudget}}</p>
   </div>
-   <mat-progress-bar color = "warn" mode="determinate" value="40"></mat-progress-bar>
+   <mat-progress-bar color = "primary" mode="determinate" value="40"></mat-progress-bar>
 <div class = "creddebBtn">
-   <button class = "creditBtn" (click)="openIncome()" mat-button>Income</button>
-   <span></span>
-  
-   <button class = "debitBtn"(click)="openExpense()" mat-button>Expense</button>
+   <button class = "creditBtn" (click)="openIncome()" mat-button>Add Income/Expense</button>
   </div>
 </mat-card>
-<mat-card class = "statusCard">Transactions</mat-card>
+
+<mat-card class = "statusCard">
+
+    <button *ngIf = "detailsCard" class="chartDetailBtn" (click) = 'chartDetails()'>Details</button>
+
+
+    <button *ngIf = "chartCard" class="chartDetailBtn" (click) = 'detailsChart()'>Chart</button>
+  
+<div [hidden]= 'detailsCard'>
+   <table class="detailscrd">
+    <tr>
+        <th>Food</th>
+        <td>
+          Rs {{this.foodValue}}
+        </td>
+      </tr>
+      <tr>
+        <th>Travel</th>
+        <td>
+          Rs {{this.travelValue}}
+        </td>
+      </tr>
+      <tr>
+        <th>Accommodation</th>
+        <td>
+          Rs {{this.accommodationValue}}
+        </td>
+      </tr>
+      <tr>
+        <th>Shopping</th>
+        <td>
+          Rs {{this.shoppingValue}}
+        </td>
+    </tr>
+</table> 
+</div>
+ <!-- <div>
+  <p>Food: Rs {{this.foodValue}}</p>
+  <br>
+  <p>Travel: Rs {{this.travelValue}}</p>
+  <br>
+  <p>Accommodation: Rs {{this.accommodationValue}}</p>
+  <br>
+  <p>Shopping: Rs {{this.shoppingValue}}</p>  
+</div> -->
+  <div class= "pie"  [hidden]= 'chartCard'>
+    <canvas id = "pieChart" style="float: right;"></canvas>
+  </div>
+</mat-card>
 <mat-card class = "unknownCard">
   <h3>Budget Status</h3>
+  <div class="budgetDetails">
+  <br>
+  <h3 *ngIf = "this.percentage <= 50">Looking good, Arun!</h3>
+
+  <h3 *ngIf = "this.percentage >= 51 && this.percentage <= 80 ">Looking Modrate, Arun!</h3>
+
+  <h3 *ngIf = "this.percentage >= 81">Looking Bad, Arun!</h3>
+  <br>
+  <p>You have spent {{this.percentage}}% of your budget for this month,
+    You still have {{this.remaining}}% to go</p>
+    <br>
+    <a (click)="openBudget()">Adjust budget</a>
+  </div>
+
 </mat-card>
+
 <mat-card class = "lastMonthCard">
   
   <h3>Last Month Result</h3>
 
   <mat-card class = "totalIncomeCard">Total Income</mat-card>
-  <mat-card class = "totalExpanseCard">Total Expense</mat-card>
- 
+  <mat-card class = "totalExpanseCard">Total Expense</mat-card> 
+
 </mat-card>
+<div class = "graph">
+  <canvas id = "lineChart">{{lineChart}}</canvas>
+</div>
+<mat-calendar class = "calender"></mat-calendar>
+
+
+<mat-toolbar  class = "footer">
+ 
+    <p style="margin-left: 42%; ">© 2020 Copyright: Expense Tracker</p>
+ 
+</mat-toolbar>

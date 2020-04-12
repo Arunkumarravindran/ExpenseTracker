@@ -1,0 +1,10 @@
+
+<form autocomplete="on" [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+
+ 
+  <mat-form-field >
+    <mat-label>Amount</mat-label>
+    <input matInput  type = "number" placeholder="Rs:0000" formControlName="amount">
+  </mat-form-field>
+  <button style="background-color: hotpink;text-align: center;"  type="submit" [disabled]="!budgetForm.valid" mat-button>Set Budget</button>
+</form>

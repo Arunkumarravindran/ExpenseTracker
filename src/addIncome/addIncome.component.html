@@ -1,42 +1,62 @@
 
-<form class="example-form">
-  <mat-form-field>
-    <mat-label>Select Date</mat-label>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <span></span>
-  <br>
-  <mat-form-field>
-    <mat-label>Catagory</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let catagory of catagories" [value]="catagory.value">
-        {{catagory.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <span></span>
-  
+<form autocomplete="on" [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+
   <mat-form-field>
     <mat-label>Type</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let type of types" [value]="type.value">
+    <mat-select formControlName="type" [(ngModel)]="optionValue">
+      <mat-option  *ngFor="let type of types" [value]="type.value"  >
         {{type.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <span></span>
+  <br>
+  <mat-form-field>
+    <mat-label>Select Date</mat-label>
+    <input matInput [matDatepicker]="basicDatepicker" placeholder="Choose a date" formControlName="date">
+    <mat-datepicker-toggle matSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #basicDatepicker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <span></span>
+ 
+  <mat-form-field  *ngIf = "optionValue == 'Income'; else elseBlock">
+    <mat-label>Catagory</mat-label>
+    <mat-select formControlName="catagory" >
+      <mat-option *ngFor="let catagory of incomeCatagories" [value]="catagory.value" >
+        {{catagory.viewValue}}
+      </mat-option> 
+    </mat-select>
+  </mat-form-field>
+
+  <ng-template #elseBlock>
+    <mat-form-field >
+      <mat-label>Catagory</mat-label>
+      <mat-select formControlName="catagory" >
+        <mat-option *ngFor="let catagory of expenseCatagories" [value]="catagory.value" >
+          {{catagory.viewValue}}
+        </mat-option> 
+      </mat-select>
+    </mat-form-field>
+  </ng-template>
+  
   <br>
   <mat-form-field >
     <mat-label>Amount</mat-label>
-    <input matInput placeholder="Rs:0000" >
+    <input matInput  type = "number" placeholder="Rs:0000" formControlName="amount">
   </mat-form-field>
   <br>
   <mat-form-field class="example-full-width">
     <mat-label>Add Notes</mat-label>
-    <textarea matInput placeholder="Ex. salary credited..."></textarea>
+    <textarea matInput placeholder="Ex. salary credited..." formControlName="notes"></textarea>
   </mat-form-field>
 <br>
-  <button class = "addIncmbtn" mat-button>Add Income</button>
+<div *ngIf = "optionValue == 'Income'; else btnelseBlock">
+  <button class = "addIncmbtn" style="background-color: rgb(44, 160, 44);" mat-stroked-button type="submit" [disabled]="!expenseForm.valid">Add Income</button>
+  
+</div>
+<ng-template #btnelseBlock>
+  <button class = "addIncmbtn" style="background-color: rgb(218, 50, 50); " mat-stroked-button type="submit" [disabled]="!expenseForm.valid">Add Expense</button>
+</ng-template>
+
 </form>
