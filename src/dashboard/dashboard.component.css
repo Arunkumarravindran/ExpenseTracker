@@ -12,8 +12,7 @@
     background-image: url('https://designshack.net/wp-content/uploads/tips-for-using-background-textures-in-web-design.jpg');
 }
 .budgetCard{
-    height: 47%;
-    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    height: 48%;
     display: block;
     position: relative;
     float: right;
@@ -22,11 +21,16 @@
     margin-top: 10px;
     margin-right: 12px;
     width: 30%;
-    background-image: url('https://ak0.picdn.net/shutterstock/videos/28544560/thumb/1.jpg');
+    transition: none !important;
+    box-shadow: none !important;
+    /* background-image: url('https://ak0.picdn.net/shutterstock/videos/28544560/thumb/1.jpg'); */
+    background-color: #283333;
 }
 .statusCard{
-    height: 47%;
-    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    height: 48%;
+    /* transition: box-shadow 280ms cubic-bezier(.4,0,.2,1); */
+    transition: none !important;
+    box-shadow: none !important;
     display: block;
     position: relative;
     float: right;
@@ -35,12 +39,16 @@
     margin-top: 10px;
     margin-right: 16px;
     width: 30%;
-    background-image: url('https://lh3.googleusercontent.com/proxy/dR5QL-IqwTDQkyy06LHsBxgU0UncJ6CukDIWG1zPZhIzcRi8lFKafMaWl_8tFvWCq3emfgdP0GEvMQXg4qsCr6YhCn6T0tGW_1sX0z0-AWc4u3nbPGpPbuTy10VWxbxJIrBCSqYgzoEYXiTcw7r-azZn6uzuAug');
+    
+    /* background-image: url('https://st.depositphotos.com/1000152/1584/i/450/depositphotos_15846101-money-background.jpg'); */
+    background-color: #283333;
 }
 
 .unknownCard{
-    height: 47%;
-    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    height: 48%;
+    /* transition: box-shadow 280ms cubic-bezier(.4,0,.2,1); */
+    transition: none !important;
+    box-shadow: none !important;
     display: block;
     position: relative;
     float: left;
@@ -48,13 +56,18 @@
     border-radius: 0px;
     margin-top: 10px;
     margin-left: 10px;
-    width: 30%;
-    background-color:rgb(71,193,116);
+    width: 29%;
+}
+.unknownCard a:hover{
+  color: rgb(23, 133, 105);
 }
 
 .example-header-image {
     background-image: url('data:image/png;base64,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');
     background-size: cover;
+    position: absolute;
+    left: 40px;
+    top: 20%;
   }
   .userCircle{
     position: absolute;
@@ -65,18 +78,26 @@
 }
 
 .lastMonthCard{
-    height: 45%;
-    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
-    display: block;
-    position: absolute;
-    float: left;
-    padding: 16px;
-    bottom: 0;
-    top: 76%;
-    border-radius: 0px;
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 30%;
+  height: 42%;
+  /* transition: box-shadow 280ms cubic-bezier(.4,0,.2,1); */
+  transition: none !important;
+  box-shadow: none !important;
+  display: block;
+  position: absolute;
+  float: left;
+  padding: 16px;
+  /* bottom: 0; */
+   top: 63%;
+  border-radius: 0px;
+  /* margin-top: 10px; */
+  margin-left: 10px;
+  width: 29%;
+
+}
+.toggle{
+  position: absolute;
+  right: 10%;
+  font-size: 12px;
 }
 .creditBar {
     margin-top: 10px;
@@ -85,14 +106,11 @@
     margin: 0 10px;
   }
 
-  .creddebBtn{
-      margin-top: 40px;
-  }
 
   .creditBtn{
-    margin-left: 146px;
-    background-color: rgb(22, 96, 109);
-    margin-top: 18px;
+    margin-left: 132px;
+    background-color: rgb(40,51,51);
+    margin-top: 20px;
   }
   .debitBtn{
     float: right;
@@ -109,28 +127,31 @@
     float: right;
     margin-top: -50px;
     margin-left: 57px;
-    background-color: rgb(8,54,116);
+    background-color: rgb(40,51,51);
   }
   .chartDetailBtn{
-    float: right;
-    margin-top: -50px;
-    margin-left: 57px;
-    background-color: rgb(8,54,116);
+    background-color: rgb(40,51,51);
+    position: absolute;
+    right: 20px;
   }
   .viewsstatmBtn{
     float: right;
     margin-left: 30px;
     margin-top: -15px;
-    background-color: rgb(19,116,178);
+    background-color: rgb(40,51,51);
   }
 
   .totalIncomeCard{
 margin-top: 20px;
 height: 55px;
+color: rgb(34, 33, 33);
+background-color: rgb(125, 230, 125);
   }
   .totalExpanseCard{
     margin-top: 50px;
     height: 55px;
+    color: rgb(34, 33, 33);
+    background-color: rgb(236, 138, 138);
   }
    
   .headerDiv{
@@ -139,36 +160,40 @@ height: 55px;
   }
 
   .barNames{
-      font-size: 14px;
+      font-size: 11px;
 font-weight: bold;
-      margin-top: -3px;
+      margin-top: 12px;
   }
 
   .graph{
     float: left;
     width: 49%;
-    margin-left: 34%;
+    margin-left: 32%;
     margin-top: 23px;
+    
   
   }
 
   .pie{
    width: 145%; 
-   margin-left: -105px;
+   margin-left: -91px;
+   margin-top: 23px;
   }
 
   .calender{
-    height: 30%;
-    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    height: 32%;
+    /* transition: box-shadow 280ms cubic-bezier(.4,0,.2,1); */
+    transition: none !important;
+    box-shadow: none !important;
     display: block;
     position: relative;
     float: right;
     padding: 16px;
     border-radius: 0px;
-    margin-top: 28px;
+    margin-top: -17px;
     margin-right: 12px;
     width: 14%;
-    background-color: grey;
+    background-color: #283333;
   }
   .detailscrd{
     width: 100%;
@@ -197,18 +222,72 @@ font-weight: bold;
     background-color: rgb(71, 91, 179);
     color: white;
   }
+  .searchBar{
+   
+    left: 0%;
+    width: 100%;
+    top: 0%;
+
+}
+.subscribeBtn{
+  position: absolute;
+  bottom: 0%;
+  left: 33%;
+  width: 90px;
+  background-color: rgb(209, 66, 14);
+}
   .footer{
 
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(199, 197, 204);
-  color: rgb(194, 23, 23);
-  text-align: center;
-  height: 30px;
+     /* left: 0; */
+     position: absolute;
+     bottom: -42%;
+     width: 100%;
+     background-color: rgb(40, 51, 51);
+     color: rgb(193, 193, 193);
+     text-align: center;
+     font-size: 11px;
+    
   }
 
   .budgetDetails{
     text-align: center;
+    margin-top: 23px;
     
   }
+  .detailsCard{
+    margin-top: 43px;
+   color: rgb(34, 33, 33);
+  }
+
+.remainingDetailCrd{
+  color: rgb(34, 33, 33);
+  margin-top: 13px;
+  height: 43%;
+}
+.logo{
+  width: 55px;
+  border-radius: 26px;
+}
+.support{
+  position: absolute;
+  color: #161b1b;
+  right: 3%;
+  top: 110%;
+  text-align: center;
+  border-radius: 35px;
+  width: 8%;
+  background-color: green;
+}
+.support :hover{
+  background-color: rgb(47, 158, 47);
+}
+.subscribe{
+  width: 26%;
+  position: absolute;
+  left: 2%;
+  top: 111%;
+  height: 16%;
+  transition: none !important;
+    box-shadow: none !important;
+  background-color: #283333;
+}

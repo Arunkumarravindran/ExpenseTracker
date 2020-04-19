@@ -15,7 +15,6 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewStatementComponent } from '../viewStatement/viewStatement.component';
 import {MatTableModule} from '@angular/material/table';
-import { AddExpenseComponent } from '../addExpense/addExpense.component';
 import { AddIncomeComponent } from '../addIncome/addIncome.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -29,25 +28,46 @@ import {MatSortModule} from '@angular/material/sort';
 import { ChartsModule } from 'ng2-charts';
 import {MatBadgeModule} from '@angular/material/badge';
 import { SetMonthyBudgetComponent } from '../setMonthyBudget/setMonthyBudget.component';
+import { HomeScreenComponent } from '../homeScreen/homeScreen.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {ConfirmPopupComponent} from '../confirmPopup/confirmPopup.component'
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoginFailureComponent } from 'src/loginFailure/loginFailure.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { UserIdleModule } from 'angular-user-idle';
 @NgModule({
    declarations: [
       AppComponent,
       DashboardComponent,
       ViewStatementComponent,
-      AddExpenseComponent,
       AddIncomeComponent,
-      SetMonthyBudgetComponent
+      SetMonthyBudgetComponent,
+      HomeScreenComponent,
+      LoginComponent,
+      RegisterComponent,
+      ConfirmPopupComponent,
+      LoginFailureComponent
    ],
    entryComponents: [
       ViewStatementComponent,
-      AddExpenseComponent,
       AddIncomeComponent,
-      SetMonthyBudgetComponent
+      SetMonthyBudgetComponent,
+      ConfirmPopupComponent,
+      LoginFailureComponent
    ],
    imports: [
       BrowserModule,
+      MatTabsModule,
+      MatSlideToggleModule,
+      MatTooltipModule,
       ReactiveFormsModule,
+      MatGridListModule,
       MatSortModule,
+      MatSnackBarModule,
       FormsModule,
       MatBadgeModule,
       ChartsModule,
@@ -68,7 +88,8 @@ import { SetMonthyBudgetComponent } from '../setMonthyBudget/setMonthyBudget.com
       MatDialogModule,
       MatTableModule,
       HttpClientModule,
-      MatDatepickerModule
+      MatDatepickerModule,
+      UserIdleModule.forRoot({idle: 20, timeout: 20, ping: 10})
    ],
    providers: [
       DatePipe

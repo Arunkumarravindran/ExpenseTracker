@@ -1,0 +1,137 @@
+.footerCard{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(199, 197, 204);
+    color: rgb(194, 23, 23);
+    height: 22%;
+     background-color: rgb(246,246,246);
+}
+
+.header{
+    height: 100px;
+   background-image: url("https://cdn.hipwallpaper.com/i/1/10/yX0SVW.jpg");
+}
+.loginBtn{
+    position: absolute; 
+    right: 9%;
+    font-size:14px;
+     cursor: pointer;
+}
+.dashBoardBtn{
+    position: absolute;
+    right: 14%;
+    font-size: 14px;
+    cursor: pointer;
+}
+ a:hover{
+    color: pink;
+ }
+.signInBtn{
+background-color: rgb(242,130,32);
+    position: absolute; 
+    right: 0;
+    margin-right: 15px;
+ 
+}
+.Signupinput{
+    width: 100%;
+    height: 87%;
+    font-size: 20px;
+    text-align: center;
+      background-image: url("https://cdn.hipwallpaper.com/i/1/10/yX0SVW.jpg");
+}
+.signUpFont{
+    font-size: 78px;
+    text-align: center;
+}
+.signUpText{
+position: absolute;
+top: 170px;
+left: 22%;
+}
+.sigupInput{
+    width: 68%;
+    height: 55px;
+    margin-left: 55px;
+}
+
+.signUpFreeBtn{
+
+    background-color: rgb(242,130,32);
+    height: 61px;
+    width: 18%;
+    margin-left: 10px;
+
+}
+.logo{
+    width: 55px;
+    border-radius: 26px;
+    position: absolute;
+    top: 4%;
+  }
+
+img{
+   position: absolute;
+   top: 35px;
+} 
+
+.imgTxt{
+    position: absolute;
+    bottom: 30%;
+    margin-left: 28px;
+    color: gray;
+}
+
+.BlanimgTxt{
+    position: absolute;
+    bottom: 33%;
+    margin-left: 28px;
+    color: gray;
+}
+.questionTxt{
+    position: absolute;
+    bottom: 10%;
+    margin-left: 28px;
+    color: gray;
+}
+.frqask{
+    margin-top: -175px;
+}
+ .copyrights{
+    position: absolute;
+    bottom: -192%;
+    margin-left: 40%;
+    font-size: 13px;
+    text-align: center;
+    color: gray;
+} 
+
+.fa {
+    padding: 20px;
+  font-size: 30px;
+  width: 28px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }

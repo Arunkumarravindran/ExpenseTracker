@@ -1,0 +1,86 @@
+
+<mat-toolbar  class="headerBar">
+  <img class = "logo" src = "../assets/logos/download.png">
+  <span class="loginTitle"> Expense Tracker</span> 
+ 
+</mat-toolbar>
+
+<mat-card class="loginCard">
+  <mat-tab-group dynamicHeight class="loginGroup" mat-align-tabs="center">
+    <mat-tab class="loginLable" label="LOGIN">
+      <div class="example-small-box mat-elevation-z4">
+        <div class="socialIcons">
+
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-google"></a>
+<a href="#" class="fa fa-twitter"></a>
+
+        </div>
+        <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="login()">
+          <mat-form-field color = "accent" class="example-full-width">
+            <mat-label>Your Email</mat-label>
+            <input type = "email" matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+          <br>
+          <mat-form-field color = "accent" class="example-full-width">
+            <mat-label>Your Password</mat-label>
+            <input type = "password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <br>  
+          <button mat-button [disabled] = "!loginForm.valid" class = "loginBtn" type="submit">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Login
+          </button>
+          <br>
+          <br>
+          <br>
+    
+Don't have an account yet?
+          <a routerLink="/login" class="btn btn-link">Register Now !</a>
+         
+          </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="REGISTER">
+      <div class="example-large-box mat-elevation-z4">
+        <div class="socialIcons">
+
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-google"></a>
+<a href="#" class="fa fa-twitter"></a>
+
+        </div>
+        
+        <form  class="registerForm" [formGroup]="registerForm" (ngSubmit)="register()" >
+          <mat-form-field color = "accent" class="example-full-width" color = "accent">
+            <mat-label>Your Name</mat-label>
+            <input matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+          <br>
+          <mat-form-field color = "accent" class="example-full-width">
+            <mat-label>Your Email</mat-label>
+            <input type = "email" matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+          <br>
+          <mat-form-field color = "accent" class="example-full-width">
+            <mat-label>Your Password</mat-label>
+            <input  type = "password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <br>  
+          <button [disabled]= "!registerForm.valid" mat-button class = "loginBtn">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Register
+          </button>
+          <br>
+          <br>
+          <br>
+    
+Already have a account !!!
+          <a routerLink="/login" class="btn btn-link">Login Here !</a>
+         
+          </form>
+        
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

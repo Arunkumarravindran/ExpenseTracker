@@ -1,0 +1,115 @@
+<mat-toolbar  class="header">
+  <img class = "logo" src = "../assets/logos/download.png
+  ">
+  <span style="position: absolute;left: 6%;">Expense Tracker</span> 
+  <a (click) = 'dashboard()'class="dashBoardBtn">DASHBOARD</a>
+    <a (click) = 'login()'class="loginBtn">LOGIN</a>
+    <button (click) = 'signup()' class="signInBtn" mat-button>SIGN UP</button>
+ 
+</mat-toolbar>
+
+
+<mat-toolbar class="Signupinput">
+  <div class="signUpText">
+    <p class="signUpFont">FIND FINANCIAL PEACE </p>
+    <p class="signUpFont">OF MIND</p>
+    <p class="signUpFont" style="font-size: 25px;">Expense tracker that works anywhere, anytime.</p>
+
+    <input mat-input class="sigupInput" placeholder="Type your email and Start budgeting"> <button class="signUpFreeBtn" mat-button>SIGNUP FREE</button>
+  </div>
+
+</mat-toolbar>
+
+   <h3 style="text-align: center; color: gray;">How It Works</h3>
+   <hr>
+   <mat-grid-list cols="4" rowHeight="1:2">
+    <mat-grid-tile>
+      <img  src="https://www.mobillsapp.com/images/contents/setting-up-my-budget.png">
+      
+      <h3 style="margin-top: 48px;">SETTING UP YOUR BUDGET</h3>
+      <br>
+     <div class="imgTxt">
+       <p>Create and manage custom budgets that percectly works for you. Never go over your budget again.</p>
+     </div>
+     
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <img  src="https://www.mobillsapp.com/images/contents/recording-my-transactions.png">
+      <h3 style="margin-top: 48px;">RECORD YOUR TRANSACTIONS</h3>
+      <br>
+      <div class="imgTxt">
+        <p>Including those that can be easily forgotten, with just one tap. You can set your expenses as paid, pending, recurring or repeated.</p>
+      </div>
+    </mat-grid-tile>
+     
+    <mat-grid-tile>
+      <img src="https://www.mobillsapp.com/images/contents/track-your-balance.png">
+      <h3 style="margin-top: 48px;">TRACK YOUR BALANCE</h3>
+      <br>
+      <div class="BlanimgTxt">
+        <p>Check your balance in the dashboard and know where your money is going.</p>
+      </div>
+    </mat-grid-tile>
+      
+      <mat-grid-tile>
+      <img src="https://www.mobillsapp.com/images/contents/save-money.png">
+      <h3 style="margin-top: 48px;">SAVE MONEY</h3>
+      <br>
+      <div class="BlanimgTxt">
+        <p>Keep saving money with the best expense tracker and find financial peace of mind.</p>
+      </div>
+    </mat-grid-tile>
+     
+  </mat-grid-list>
+  <div class="frqask">
+    <hr>
+
+  <h3 style="text-align: center; color: gray;">FREQUENTLY ASKED QUESTIONS</h3>
+
+  
+  <mat-grid-list cols="2" rowHeight="3:1">
+    <mat-grid-tile>
+      <h3>
+        How do I create a budget?</h3>
+      <br>
+     <div class="questionTxt">
+       <p>The first step in creating a budget is to set your personal goals. You can create monthly budgets by tapping on 'set budgets' in the dashboard.</p>
+     </div>
+     
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <h3>Why do I need an expense tracker app?</h3>
+      <br>
+      <div class="questionTxt">
+        <p>With an expense tracker you can manage all your transactions without using papers. You can do this on the go and optimize your time.</p>
+      </div>
+    </mat-grid-tile>
+     
+    <mat-grid-tile>
+      <h3>What is predicted balance?</h3>
+      <br>
+      <div class="questionTxt">
+        <p>It's the value that, according with your recorded transactions, represents what you should have at the end of the coming months. You find this value in several places on Mobills.</p>
+      </div>
+    </mat-grid-tile>
+      
+      <mat-grid-tile>
+      <h3>How can I change my currency?</h3>
+      <br>
+      <div class="questionTxt">
+        <p>Manage your money with all currencies available until now. You can easy change your currency through 'Settings'.</p>
+      </div>
+    </mat-grid-tile>
+     
+  </mat-grid-list>
+  </div>
+
+  
+<mat-toolbar class="footerCard">
+  <a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<div class="copyrights">
+  <p>© Expense Tracker 2020 - All rights reserved </p>
+  <p style="color: blue;">Terms of Use | Privacy and Policy</p>
+</div>
+</mat-toolbar>

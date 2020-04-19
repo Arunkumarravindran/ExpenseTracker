@@ -24,8 +24,9 @@ export class AddIncomeComponent implements OnInit {
   ];
 
   types: any[] = [
-    {value: 'Income', viewValue: 'Income'},
-    {value: 'Expense', viewValue: 'Expense'}
+    {value: 'Expense', viewValue: 'Expense'},
+    {value: 'Income', viewValue: 'Income'}
+  
   ];
 
   expenseForm : FormGroup;

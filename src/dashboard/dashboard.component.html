@@ -1,8 +1,16 @@
+<div [ngStyle]="{backgroundColor:getTheme()}" style="height: 100%;">
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Expense Tracker</span>
+    <img class = "logo" src = "../assets/logos/download.png" (click) = "home()">
+    <span style="    margin-left: 10px;">Expense Tracker</span>
+    <div class="toggle">
+      Dark
+    <mat-slide-toggle (click)= toggle()>
+        Light
+      </mat-slide-toggle>
+    </div>
     <mat-card-header>
-      <div mat-card-avatar matBadge="{{this.badgeValue}}" (click) = "badgeValueZero()" matBadgeColor="warn" class="userCircle"></div>
+      <div mat-card-avatar matBadge={{this.badgeValue}} (click) = "logOut()" matBadgeColor="accent" class="userCircle"></div>
     </mat-card-header>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -10,25 +18,30 @@
 
 
 
-<mat-card class = "welcomeCard">
+<!-- <mat-card class = "welcomeCard">
   <div class = "headerDiv">
   <mat-card-header>
-    <div mat-card-avatar matBadge="{{this.badgeValue}}" (click) = "badgeValueZero()" matBadgeColor="warn" class="example-header-image"></div>
-    <mat-card-title>Welcome Back, Arun Kumar!</mat-card-title>
+    <div mat-card-avatar   matBadge={{this.badgeValue}} matBadgePosition="before" matBadgeColor="warn"  (click) = "badgeValueZero()"  class="example-header-image"></div>
+    <mat-card-title>Welcome Back, {{userName}}!</mat-card-title>
     <mat-card-subtitle>This is your dashboard, Overview of everything</mat-card-subtitle>
     <div class = "statementBtn">
-      <button class = "viewsstatmBtn" (click)="openStatement()" mat-button>Statement</button>
+      <button matTooltip="Get the Statement List" class = "viewsstatmBtn" (click)="openStatement()" mat-button>Statement</button>
      </div>
   </mat-card-header>
 </div>
 
  
-</mat-card>
-<mat-card class = "budgetCard">
+</mat-card> -->
 
-  <h3 style="color: rgb(201, 196, 201);text-align: center;" >Budget </h3>
+<mat-card [ngStyle]="{backgroundColor:getTheme()}" class = "budgetCard">
+
+  <!-- <h3 style="color: rgb(201, 196, 201);text-align: center;" >Budget </h3> -->
+  <button matTooltip="Get the Statement List" class = "viewsstatmBtn" (click)="openStatement()" mat-button>Statement</button>
+   
   <span></span>
   <span class = "creditBar"></span>
+  <br>
+  <br>
   <div  class= "barNames">
   <p>Credit</p>
   <p style="float: right; font-size: 10px;">Rs:{{creditValue}}</p>
@@ -48,19 +61,36 @@
   </div>
    <mat-progress-bar color = "primary" mode="determinate" value="40"></mat-progress-bar>
 <div class = "creddebBtn">
-   <button class = "creditBtn" (click)="openIncome()" mat-button>Add Income/Expense</button>
+   <button matTooltip="Add  Income/Expense to Budget" class = "creditBtn" (click)="openIncome()" mat-button>Add Income/Expense</button>
   </div>
 </mat-card>
 
-<mat-card class = "statusCard">
+<mat-card [ngStyle]="{backgroundColor:getTheme()}" class = "statusCard">
 
-    <button *ngIf = "detailsCard" class="chartDetailBtn" (click) = 'chartDetails()'>Details</button>
+    <button matTooltip="Detailed List" mat-button *ngIf = "detailsCard" class="chartDetailBtn" (click) = 'chartDetails()'>Details</button>
 
 
-    <button *ngIf = "chartCard" class="chartDetailBtn" (click) = 'detailsChart()'>Chart</button>
+    <button matTooltip="Chart View" mat-button *ngIf = "chartCard" class="chartDetailBtn" (click) = 'detailsChart()'>Chart</button>
   
 <div [hidden]= 'detailsCard'>
-   <table class="detailscrd">
+  <mat-card class="detailsCard" style="background-color: rgb(153,255,153);">
+    <mat-icon> fastfood</mat-icon> Food
+    <p style="float: right; font-size: 12px; ">Rs:{{this.foodValue}}</p>
+  </mat-card>
+  <mat-card class="remainingDetailCrd" style="background-color:rgb(240,203,105);">
+    <mat-icon> directions_subway</mat-icon> Travel
+    <p style="float: right; font-size: 12px;">Rs:{{this.travelValue}}</p>
+  </mat-card>
+  <mat-card class="remainingDetailCrd"style="background-color:rgb(102,179,255)">
+    <mat-icon>home</mat-icon>  Accommodation
+    <p style="float: right; font-size: 12px;  ;">Rs:{{this.accommodationValue}}</p>
+  </mat-card>
+  <mat-card class="remainingDetailCrd" style="background-color:rgb(255,153,153) ;">
+    <mat-icon>shopping_cart</mat-icon> Shopping
+    <p style="float: right; font-size: 12px; ">Rs:{{this.shoppingValue}}</p>
+  </mat-card>
+  
+   <!-- <table class="detailscrd">
     <tr>
         <th>Food</th>
         <td>
@@ -85,8 +115,8 @@
           Rs {{this.shoppingValue}}
         </td>
     </tr>
-</table> 
-</div>
+</table> -->
+</div> 
  <!-- <div>
   <p>Food: Rs {{this.foodValue}}</p>
   <br>
@@ -100,40 +130,50 @@
     <canvas id = "pieChart" style="float: right;"></canvas>
   </div>
 </mat-card>
-<mat-card class = "unknownCard">
-  <h3>Budget Status</h3>
+<mat-card [ngStyle]="{backgroundColor:getTheme()}"  class = "unknownCard">
+  <div mat-card-avatar   matBadge={{this.badgeValue}} matBadgePosition="before" matBadgeColor="warn"  (click) = "badgeValueZero()"  class="example-header-image"></div>
   <div class="budgetDetails">
   <br>
-  <h3 *ngIf = "this.percentage <= 50">Looking good, Arun!</h3>
+  <h3 *ngIf = "this.percentage <= 50" style="color:rgb(71,193,116);">Looking good, {{userName}}!</h3>
 
-  <h3 *ngIf = "this.percentage >= 51 && this.percentage <= 80 ">Looking Modrate, Arun!</h3>
+  <h3 *ngIf = "this.percentage >= 51 && this.percentage <= 80 " style="color: rgb(205,180,16)">Looking Modrate, {{userName}}!</h3>
 
-  <h3 *ngIf = "this.percentage >= 81">Looking Bad, Arun!</h3>
+  <h3 *ngIf = "this.percentage >= 81"style="color: rgb(176,37,37);">Looking Bad, {{userName}}!</h3>
   <br>
-  <p>You have spent {{this.percentage}}% of your budget for this month,
+  <p style="margin-top: 15px;">You have spent {{this.percentage}}% of your budget for this month,
     You still have {{this.remaining}}% to go</p>
     <br>
-    <a (click)="openBudget()">Adjust budget</a>
+    <a matTooltip="Set Monthly Budget" (click)="openBudget()">Adjust budget <i class="fa fa-hand-o-right" aria-hidden="true"></i></a>
   </div>
 
 </mat-card>
 
-<mat-card class = "lastMonthCard">
+<mat-card  [ngStyle]="{backgroundColor:getTheme()}" class = "lastMonthCard">
   
-  <h3>Last Month Result</h3>
+  <h3 style="text-align: center;">Last Month Result</h3>
 
   <mat-card class = "totalIncomeCard">Total Income</mat-card>
   <mat-card class = "totalExpanseCard">Total Expense</mat-card> 
 
 </mat-card>
+
+<mat-card class="subscribe">
+  <mat-form-field class="searchBar" appearance="outline">
+    <input matInput placeholder="Enter your Email to Subscribe New Updates" >
+  </mat-form-field>
+  <br>
+  <button mat-button class="subscribeBtn">Subscribe </button>
+</mat-card>
 <div class = "graph">
   <canvas id = "lineChart">{{lineChart}}</canvas>
 </div>
 <mat-calendar class = "calender"></mat-calendar>
-
-
+</div>
+<mat-card class="support"><i class="fa fa-question-circle-o" aria-hidden="true"></i>Support</mat-card>
+<div [ngStyle]="{backgroundColor:getTheme()}" style="height: 36%;">
 <mat-toolbar  class = "footer">
  
     <p style="margin-left: 42%; ">© 2020 Copyright: Expense Tracker</p>
  
 </mat-toolbar>
+</div>

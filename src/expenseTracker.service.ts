@@ -25,7 +25,7 @@ interface ItemsResponse {
   providedIn: 'root'
 })
 export class ExpenseTrackerService {
-
+  
   statementUrl = "http://localhost:5000/expenseTable"
   monthlyBudgetUrl = "http://localhost:5000/monthlyBuget"
 constructor(private http: HttpClient) { }
@@ -39,6 +39,14 @@ getStatement() : Observable<Statements[]> {
         }));
       
 }
+delete(id: any) {
+  return this.http.delete(this.statementUrl+"/"+id).pipe(retry(2),
+  catchError(this.handleError)
+  , map(responseBody => { 
+      return responseBody;
+    }));
+}
+
 addBudget( e : Statements){
 return this.http.post<Statements>(this.statementUrl,e).pipe(retry(2),
 catchError(this.handleError)
