@@ -75,7 +75,7 @@ export class AddIncomeComponent implements OnInit {
     this.etservice.addBudget(json).subscribe((response=>
       {
         if(response == 'success'){
-          this.dialogRef.close();
+          this.dialogRef.close( );
         }
       }))
    
