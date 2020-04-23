@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +39,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginFailureComponent } from 'src/loginFailure/loginFailure.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { UserIdleModule } from 'angular-user-idle';
+import { HttpInterceptorService } from 'src/_helper/httpInterceptor';
+import { ExpenseTrackerService } from 'src/expenseTracker.service';
 @NgModule({
    declarations: [
       AppComponent,
@@ -92,7 +94,7 @@ import { UserIdleModule } from 'angular-user-idle';
       UserIdleModule.forRoot({idle: 20, timeout: 20, ping: 10})
    ],
    providers: [
-      DatePipe
+      DatePipe,ExpenseTrackerService,{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
    ],
    bootstrap: [
       AppComponent

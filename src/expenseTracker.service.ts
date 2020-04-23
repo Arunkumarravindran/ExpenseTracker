@@ -32,42 +32,33 @@ constructor(private http: HttpClient) { }
 
 getStatement() : Observable<Statements[]> {
   return this.http
-      .get<Statements[]>(this.statementUrl).pipe(retry(2),
-      catchError(this.handleError)
-      , map(responseBody => { 
+      .get<Statements[]>(this.statementUrl).pipe(map(responseBody => { 
           return responseBody;
         }));
       
 }
 delete(id: any) {
-  return this.http.delete(this.statementUrl+"/"+id).pipe(retry(2),
-  catchError(this.handleError)
-  , map(responseBody => { 
+  return this.http.delete(this.statementUrl+"/"+id).pipe(map(responseBody => { 
       return responseBody;
     }));
 }
 
 addBudget( e : Statements){
-return this.http.post<Statements>(this.statementUrl,e).pipe(retry(2),
-catchError(this.handleError)
-, map(responseBody => { 
+return this.http.post<Statements>(this.statementUrl,e).pipe(map(responseBody => { 
     return "success";
   }));
 }
 
 getMonthlyBudget(monthId): Observable<MonthlyBudget>{
-  return this.http.get<MonthlyBudget>(this.monthlyBudgetUrl+'/'+monthId).pipe(retry(2),
-  catchError(this.handleError)
-  , map(responseBody => { 
+  return this.http.get<MonthlyBudget>(this.monthlyBudgetUrl+'/'+monthId).pipe(map(responseBody => { 
       return responseBody;
     }));
+    
   
 }
 setMonthlyBudget(data){
   console.log("inside update",data)
-  return this.http.patch(this.monthlyBudgetUrl +"/"+ data.id, data).pipe(retry(2),
-  catchError(this.handleError)
-  , map(responseBody => { 
+  return this.http.patch(this.monthlyBudgetUrl +"/"+ data.id, data).pipe(map(responseBody => { 
     console.log("updated")
       return "Success";
     }));

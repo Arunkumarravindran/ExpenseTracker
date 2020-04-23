@@ -9,6 +9,7 @@ import { Chart } from 'chart.js';
 import { AuthenticationService } from 'src/authentication.service';
 import { Router } from '@angular/router';
 import { UserIdleService } from 'angular-user-idle';
+import { error } from 'util';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -157,7 +158,10 @@ export class DashboardComponent implements OnInit {
        this.remaining = (100- this.percentage)
        console.log(this.percentage, "and",this.debitValue,"and",this.monthlyBudget, "and", this.remaining)
  
-    })
+    }),
+    (error)=>{
+    alert(error);
+    }
   }
 
   openStatement() {
