@@ -20,11 +20,13 @@
           <mat-form-field color = "accent" class="example-full-width">
             <mat-label>Your Email</mat-label>
             <input type = "email" matInput placeholder="Email" formControlName="email">
+            <div *ngIf="submitted&&fval.email.errors.required">Product Name is required</div>
           </mat-form-field>
           <br>
           <mat-form-field color = "accent" class="example-full-width">
             <mat-label>Your Password</mat-label>
             <input type = "password" matInput placeholder="Password" formControlName="password">
+            <div *ngIf="submitted&&fval.password.errors.required">Product Name is required</div>
           </mat-form-field>
           <br>  
           <button mat-button [disabled] = "!loginForm.valid" class = "loginBtn" type="submit">
@@ -55,16 +57,19 @@ Don't have an account yet?
           <mat-form-field color = "accent" class="example-full-width" color = "accent">
             <mat-label>Your Name</mat-label>
             <input matInput placeholder="Name" formControlName="name">
+            <div *ngIf="submitted&&fval1.name.errors.required">Product Name is required</div>
           </mat-form-field>
           <br>
           <mat-form-field color = "accent" class="example-full-width">
             <mat-label>Your Email</mat-label>
             <input type = "email" matInput placeholder="Email" formControlName="email">
+            <div *ngIf="submitted&&fval1.email.errors.required">Product Name is required</div>
           </mat-form-field>
           <br>
           <mat-form-field color = "accent" class="example-full-width">
             <mat-label>Your Password</mat-label>
             <input  type = "password" matInput placeholder="Password" formControlName="password">
+            <div *ngIf="submitted&&fval1.password.errors.required">Product Name is required</div>
           </mat-form-field>
           <br>  
           <button [disabled]= "!registerForm.valid" mat-button class = "loginBtn">

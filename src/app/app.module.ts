@@ -41,6 +41,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { UserIdleModule } from 'angular-user-idle';
 import { HttpInterceptorService } from 'src/_helper/httpInterceptor';
 import { ExpenseTrackerService } from 'src/expenseTracker.service';
+import { AuthenticationService } from 'src/authentication.service';
 @NgModule({
    declarations: [
       AppComponent,
@@ -94,7 +95,7 @@ import { ExpenseTrackerService } from 'src/expenseTracker.service';
       UserIdleModule.forRoot({idle: 20, timeout: 20, ping: 10})
    ],
    providers: [
-      DatePipe,ExpenseTrackerService,{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+      DatePipe,ExpenseTrackerService,AuthenticationService,{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
    ],
    bootstrap: [
       AppComponent
